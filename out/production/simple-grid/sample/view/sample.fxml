@@ -57,7 +57,7 @@
 
             <Button fx:id="solveButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" text="Solve" />
             <ResetButton fx:id="resetButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Reset" />
-            <Label prefHeight="43.0" prefWidth="114.0" text="Label" />
+            <Label fx:id="statusLabel" prefHeight="43.0" prefWidth="114.0" text="Label" />
       </children>
       </VBox>
    </right>

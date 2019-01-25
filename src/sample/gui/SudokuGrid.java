@@ -20,6 +20,7 @@ public class SudokuGrid extends GridPane {
 
     private ValueGrid valueGrid;
     private Label label;
+    private Label statusLabel;
 
     private SudokuSolver sudokuSolver;
 
@@ -27,6 +28,16 @@ public class SudokuGrid extends GridPane {
     public SudokuGrid() {
         initGrid();
         initEventFilter();
+    }
+
+
+    public void solve() {
+        List<Integer> resolvedBoardValueList = sudokuSolver.solve();
+        if(resolvedBoardValueList == null) {
+            statusLabel.setText("No solution");
+        } else {
+            updateSudokuGrid(resolvedBoardValueList);
+        }
     }
 
 
@@ -174,5 +185,13 @@ public class SudokuGrid extends GridPane {
 
     public void setSudokuSolver(SudokuSolver sudokuSolver) {
         this.sudokuSolver = sudokuSolver;
+    }
+
+    public Label getStatusLabel() {
+        return statusLabel;
+    }
+
+    public void setStatusLabel(Label statusLabel) {
+        this.statusLabel = statusLabel;
     }
 }

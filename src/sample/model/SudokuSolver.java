@@ -12,6 +12,17 @@ public class SudokuSolver {
     private int backtrackStepsCount = 0;
     private int totalSteps = 0;
 
+    public void resetGame() {
+        sudokuBoard.resetBoard();
+        System.out.println("Setting sudoku board for checker:");
+        System.out.println(sudokuBoard.toString());
+        checker.setSudokuBoard(sudokuBoard);
+        backtrack.clear();
+        backtrackStepsCount = 0;
+        totalSteps = 0;
+
+    }
+
 
     public SudokuSolver() {
     }

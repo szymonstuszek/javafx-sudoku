@@ -1,5 +1,7 @@
 package sample.controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import sample.gui.ValueGrid;
 import sample.model.SudokuSolver;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -30,6 +33,9 @@ public class Controller implements Initializable {
     private Label infoLabel;
 
     @FXML
+    private Label statusLabel;
+
+    @FXML
     private Button solveButton;
 
     @FXML
@@ -41,10 +47,27 @@ public class Controller implements Initializable {
         boardGridPane.setLabel(infoLabel);
         boardGridPane.setValueGrid(valueGridPane);
         boardGridPane.setSudokuSolver(sudokuSolver);
+        boardGridPane.setStatusLabel(statusLabel);
 
         valueGridPane.setSudokuGrid(boardGridPane);
         valueGridPane.setSudokuSolver(sudokuSolver);
 
         resetButton.setSudokuGrid(boardGridPane);
+
+        resetButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                sudokuSolver.resetGame();
+                List<Integer> clearedList = sudokuSolver.getSudokuBoard().getAllValuesFromBoard();
+                boardGridPane.updateSudokuGrid(clearedList);
+            }
+        });
+
+        solveButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                boardGridPane.solve();
+            }
+        });
     }
 }
