@@ -5,7 +5,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import sample.model.Algorithm;
+import sample.model.SudokuBoard;
+import sample.model.SudokuElement;
+import sample.model.SudokuSolver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,7 @@ public class SudokuGrid extends GridPane {
     private ValueGrid valueGrid;
     private Label label;
 
-    private Algorithm algorithm;
-
+    private SudokuSolver sudokuSolver;
 
 
     public SudokuGrid() {
@@ -67,14 +68,6 @@ public class SudokuGrid extends GridPane {
         this.label = label;
     }
 
-    public Algorithm getAlgorithm() {
-        return algorithm;
-    }
-
-    public void setAlgorithm(Algorithm algorithm) {
-        this.algorithm = algorithm;
-    }
-
     private void initGrid() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -92,10 +85,6 @@ public class SudokuGrid extends GridPane {
             }
         }
 
-    }
-
-    private List<Integer> passIndexesToAlgorithm(int columnIndex, int rowIndex) {
-        return algorithm.showValuesUnderGivenIndexes(columnIndex, rowIndex);
     }
 
     private void initEventFilter() {
@@ -122,7 +111,9 @@ public class SudokuGrid extends GridPane {
                                 //start here pass values to backend
                                 //go to value grid after
 
-                                List<Integer> availableValues = passIndexesToAlgorithm(GridPane.getColumnIndex(node), GridPane.getRowIndex(node));
+                                SudokuBoard sudokuBoard = sudokuSolver.getSudokuBoard();
+                                SudokuElement sudokuElement = sudokuBoard.getElementUnderGivenIndexes(selectedColumn, selectedRow);
+                                List<Integer> availableValues = sudokuElement.getAvailableValues();
 
                                 //get the available values from the algorithm
                                 valueGrid.setSelectedColumn(selectedColumn);
@@ -175,5 +166,13 @@ public class SudokuGrid extends GridPane {
 
     public List<SudokuButton> getButtons() {
         return buttons;
+    }
+
+    public SudokuSolver getSudokuSolver() {
+        return sudokuSolver;
+    }
+
+    public void setSudokuSolver(SudokuSolver sudokuSolver) {
+        this.sudokuSolver = sudokuSolver;
     }
 }
