@@ -27,10 +27,10 @@ public class Controller implements Initializable {
     private SudokuGrid boardGridPane;
 
     @FXML
-    private Label infoLabel;
+    private ValueGrid valueGridPane;
 
     @FXML
-    private ValueGrid valueGridPane;
+    private Label infoLabel;
 
     @FXML
     private Button solveButton;
@@ -44,20 +44,10 @@ public class Controller implements Initializable {
         boardGridPane.setLabel(infoLabel);
         boardGridPane.setAlgorithm(algorithm);
         boardGridPane.setValueGrid(valueGridPane);
+
         valueGridPane.setSudokuGrid(boardGridPane);
         valueGridPane.setAlgorithm(algorithm);
 
         resetButton.setSudokuGrid(boardGridPane);
-
-
-        solveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                boardGridPane.getButtons().forEach(e -> e.setText(String.valueOf(new Random().nextInt(9) + 1)));
-            }
-        });
-
     }
-
-
 }

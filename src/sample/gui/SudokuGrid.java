@@ -11,24 +11,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SudokuGrid extends GridPane {
-
     private List<SudokuButton> buttons = new ArrayList<>();
-
     private String selectedField;
-
     private int selectedColumn = -1;
-
     private int selectedRow = -1;
+
+    private ValueGrid valueGrid;
+    private Label label;
 
     private Algorithm algorithm;
 
-    private ValueGrid valueGrid;
 
-    private Label label;
 
     public SudokuGrid() {
         initGrid();
         initEventFilter();
+    }
+
+
+    public void updateSudokuGrid(List<Integer> values) {
+        for (int i = 0; i < 81; i++) {
+            int valueFromAlgorithm = values.get(i);
+            buttons.get(i).setValue(valueFromAlgorithm);
+            buttons.get(i).updateButtonView();
+        }
     }
 
     private int getButtonIndex(int column, int row) {
@@ -73,8 +79,10 @@ public class SudokuGrid extends GridPane {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 SudokuButton field = new SudokuButton(i, j);
+                //to fxml
                 field.setPrefSize(20.0, 20.0);
                 field.setMinSize(50, 50);
+
                 GridPane.setRowIndex(field, i);
                 GridPane.setColumnIndex(field, j);
 
@@ -110,12 +118,22 @@ public class SudokuGrid extends GridPane {
                             SudokuButton button = getButtonUnderGivenIndex(buttonIndex);
 
                             if(button.getValue() == -1) {
+
+                                //start here pass values to backend
+                                //go to value grid after
+
                                 List<Integer> availableValues = passIndexesToAlgorithm(GridPane.getColumnIndex(node), GridPane.getRowIndex(node));
+
+                                //get the available values from the algorithm
+                                valueGrid.setSelectedColumn(selectedColumn);
+                                valueGrid.setSelectedRow(selectedRow);
+                                System.out.println("Value grid col: " + valueGrid.getSelectedColumn() + " row: " + valueGrid.getSelectedRow());
+                                System.out.println("Main grid col: " + selectedColumn + " row: " + selectedRow);
+
                                 valueGrid.updateValues(availableValues);
                             } else {
                                 valueGrid.disableAllValueButtons();
                             }
-
                         }
                     }
                 }
@@ -157,9 +175,5 @@ public class SudokuGrid extends GridPane {
 
     public List<SudokuButton> getButtons() {
         return buttons;
-    }
-
-    public void setButtons(List<SudokuButton> buttons) {
-        this.buttons = buttons;
     }
 }

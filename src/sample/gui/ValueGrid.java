@@ -11,6 +11,8 @@ import java.util.List;
 
 public class ValueGrid extends GridPane {
     private List<Button> valueButtons = new ArrayList<>();
+    private int selectedColumn = -1;
+    private int selectedRow = -1;
 
     private Algorithm algorithm;
 
@@ -20,10 +22,13 @@ public class ValueGrid extends GridPane {
         valueButtons.forEach(e -> e.setDisable(true));
     }
 
-    private void passValueToAlgorithm(int value) {
+    private void passValueToAlgorithm(int selectedColumn, int selectedRow, int value) {
+        System.out.println("Passing to algorithm col: " + selectedColumn + " row: " + selectedRow + " value: " + value);
+
         algorithm.updateBoardAfterSettingNumber(value);
 
         //to implement passing values to the backend algorithm
+        //update the view
 
 
         int row = sudokuGrid.getSelectedRow();
@@ -31,7 +36,12 @@ public class ValueGrid extends GridPane {
 
         disableAllValueButtons();
 
+        //response from algorithm to update board
         sudokuGrid.setValueOnBoard(column, row, value);
+    }
+
+    public void updateBoardView() {
+
     }
 
     public ValueGrid() {
@@ -117,7 +127,7 @@ public class ValueGrid extends GridPane {
                     public void handle(ActionEvent event) {
                         int valueFromButton = Integer.valueOf(valueButton.getText());
                         System.out.println("Passing to algorithm: " + valueFromButton);
-                        passValueToAlgorithm(valueFromButton);
+                        passValueToAlgorithm(selectedColumn, selectedRow, valueFromButton);
 
                     }
                 });
@@ -143,5 +153,21 @@ public class ValueGrid extends GridPane {
 
     public void setSudokuGrid(SudokuGrid sudokuGrid) {
         this.sudokuGrid = sudokuGrid;
+    }
+
+    public int getSelectedColumn() {
+        return selectedColumn;
+    }
+
+    public void setSelectedColumn(int selectedColumn) {
+        this.selectedColumn = selectedColumn;
+    }
+
+    public int getSelectedRow() {
+        return selectedRow;
+    }
+
+    public void setSelectedRow(int selectedRow) {
+        this.selectedRow = selectedRow;
     }
 }

@@ -33,6 +33,19 @@ public class SudokuButton extends Button {
         this.value = value;
     }
 
+    public void updateButtonView() {
+        if(value == -1) this.setText("");
+        if(value == 1) this.setText("");
+        if(value == 2) this.setText("");
+        if(value == 3) this.setText("");
+        if(value == 4) this.setText("");
+        if(value == 5) this.setText("");
+        if(value == 6) this.setText("");
+        if(value == 7) this.setText("");
+        if(value == 8) this.setText("");
+        if(value == 9) this.setText("");
+    }
+
     private void initField() {
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
