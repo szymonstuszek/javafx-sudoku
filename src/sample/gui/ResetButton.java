@@ -3,8 +3,6 @@ package sample.gui;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import sample.SudokuButton;
-import sample.SudokuGrid;
 
 import java.util.List;
 

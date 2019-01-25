@@ -1,4 +1,4 @@
-package sample;
+package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,7 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import sample.model.Algorithm;
 import sample.gui.ResetButton;
+import sample.gui.SudokuGrid;
+import sample.gui.ValueGrid;
 
 import java.net.URL;
 import java.util.Random;

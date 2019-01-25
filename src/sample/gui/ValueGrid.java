@@ -1,9 +1,10 @@
-package sample;
+package sample.gui;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import sample.model.Algorithm;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package sample;
+package sample.gui;
 
 import javafx.beans.DefaultProperty;
 import javafx.event.ActionEvent;

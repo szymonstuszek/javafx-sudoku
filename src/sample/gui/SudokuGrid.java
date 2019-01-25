@@ -1,15 +1,14 @@
-package sample;
+package sample.gui;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import jdk.nashorn.internal.runtime.options.Option;
+import sample.model.Algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class SudokuGrid extends GridPane {
 
