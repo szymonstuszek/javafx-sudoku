@@ -33,10 +33,12 @@ public class SudokuGrid extends GridPane {
 
     public void solve() {
         List<Integer> resolvedBoardValueList = sudokuSolver.solve();
+        valueGrid.disableAllValueButtons();
         if(resolvedBoardValueList == null) {
             statusLabel.setText("No solution");
         } else {
             updateSudokuGrid(resolvedBoardValueList);
+            statusLabel.setText("Solved");
         }
     }
 

@@ -20,7 +20,6 @@ public class SudokuSolver {
         backtrack.clear();
         backtrackStepsCount = 0;
         totalSteps = 0;
-
     }
 
 
@@ -147,13 +146,5 @@ public class SudokuSolver {
 
     public SudokuBoard getSudokuBoard() {
         return sudokuBoard;
-    }
-
-    public ArrayDeque<Backtrack> getBacktrack() {
-        return backtrack;
-    }
-
-    public Checker getChecker() {
-        return checker;
     }
 }

@@ -1,7 +1,5 @@
 package sample.controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -54,20 +52,17 @@ public class Controller implements Initializable {
 
         resetButton.setSudokuGrid(boardGridPane);
 
-        resetButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                sudokuSolver.resetGame();
-                List<Integer> clearedList = sudokuSolver.getSudokuBoard().getAllValuesFromBoard();
-                boardGridPane.updateSudokuGrid(clearedList);
-            }
+        resetButton.setOnAction(event -> {
+            sudokuSolver.resetGame();
+            List<Integer> clearedList = sudokuSolver.getSudokuBoard().getAllValuesFromBoard();
+            boardGridPane.updateSudokuGrid(clearedList);
+            solveButton.setDisable(false);
+            statusLabel.setText("");
         });
 
-        solveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                boardGridPane.solve();
-            }
+        solveButton.setOnAction(event -> {
+            boardGridPane.solve();
+            solveButton.setDisable(true);
         });
     }
 }

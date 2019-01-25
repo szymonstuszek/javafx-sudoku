@@ -36,10 +36,6 @@ public class ValueGrid extends GridPane {
        sudokuGrid.updateSudokuGrid(updatedBoardValues);
     }
 
-    public void updateBoardView() {
-
-    }
-
     public ValueGrid() {
         initGrid();
     }
@@ -124,16 +120,8 @@ public class ValueGrid extends GridPane {
         }
     }
 
-    public SudokuSolver getSudokuSolver() {
-        return sudokuSolver;
-    }
-
     public void setSudokuSolver(SudokuSolver sudokuSolver) {
         this.sudokuSolver = sudokuSolver;
-    }
-
-    public SudokuGrid getSudokuGrid() {
-        return sudokuGrid;
     }
 
     public void setSudokuGrid(SudokuGrid sudokuGrid) {

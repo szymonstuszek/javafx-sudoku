@@ -26,7 +26,6 @@ public class ResetButton extends Button {
         this.sudokuGrid = sudokuGrid;
     }
 
-    //will have to reset algorithm too
     private void resetBoard() {
         List<SudokuButton> buttons = sudokuGrid.getButtons();
         buttons.forEach(b -> b.setValue(-1));
