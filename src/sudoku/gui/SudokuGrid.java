@@ -91,6 +91,8 @@ public class SudokuGrid extends GridPane {
 
                 GridPane.setRowIndex(field, i);
                 GridPane.setColumnIndex(field, j);
+                GridPane.setFillHeight(field, true);
+                GridPane.setFillWidth(field, true);
 
                 buttons.add(field);
 

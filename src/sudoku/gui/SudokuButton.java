@@ -14,6 +14,7 @@ public class SudokuButton extends Button {
     public SudokuButton(final int rowIndex, final int colIndex) {
         this.rowIndex = rowIndex;
         this.colIndex = colIndex;
+        this.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         initField();
     }
 

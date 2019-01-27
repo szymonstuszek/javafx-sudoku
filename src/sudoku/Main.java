@@ -11,9 +11,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent parent = FXMLLoader.load(getClass().getResource("view/sample.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("view/sudoku.fxml"));
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("Sudoku Solver");
+        primaryStage.setMinWidth(800.0);
+        primaryStage.setMinHeight(600.0);
         primaryStage.show();
     }
 

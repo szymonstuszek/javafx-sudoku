@@ -103,6 +103,7 @@ public class ValueGrid extends GridPane {
             for (int j = 0; j < 3; j++) {
                 count++;
                 Button valueButton = new Button(String.valueOf(count));
+                valueButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                 GridPane.setRowIndex(valueButton, i);
                 GridPane.setColumnIndex(valueButton, j);
 
