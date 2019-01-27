@@ -30,5 +30,7 @@ public class ResetButton extends Button {
         List<SudokuButton> buttons = sudokuGrid.getButtons();
         buttons.forEach(b -> b.setValue(-1));
         buttons.forEach(b -> b.setText(""));
+        sudokuGrid.getValueGrid().disableAllValueButtons();
+        sudokuGrid.getLabel().setText("Select a field");
     }
 }

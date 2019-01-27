@@ -8,6 +8,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import sudoku.gui.ResetButton;
+import sudoku.gui.SudokuBorderPane;
 import sudoku.gui.SudokuGrid;
 import sudoku.gui.ValueGrid;
 import sudoku.model.SudokuSolver;
@@ -21,7 +22,7 @@ public class Controller implements Initializable {
     private SudokuSolver sudokuSolver = new SudokuSolver();
 
     @FXML
-    private BorderPane mainBorderPane;
+    private SudokuBorderPane mainBorderPane;
 
     @FXML
     private SudokuGrid boardGridPane;

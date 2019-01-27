@@ -4,13 +4,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import sudoku.model.SudokuBoard;
 import sudoku.model.SudokuElement;
 import sudoku.model.SudokuSolver;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +28,7 @@ public class SudokuGrid extends GridPane {
     public SudokuGrid() {
         initGrid();
         initEventFilter();
+        this.getStyleClass().add("sudoku-grid");
     }
 
 
@@ -121,16 +120,14 @@ public class SudokuGrid extends GridPane {
 
                     if( node instanceof SudokuButton) {
                         if( node.getBoundsInParent().contains(event.getSceneX(),  event.getSceneY())) {
-                            setSelectedField("Column: " +
-                                    (GridPane.getColumnIndex(node) + 1) + " Row: " + (GridPane.getRowIndex(node) + 1));
+                            setSelectedField("Column: " + (GridPane.getColumnIndex(node) + 1) +
+                                    " Row: " + (GridPane.getRowIndex(node) + 1));
                             label.setText(getSelectedField());
 
                             setSelectedRow(GridPane.getRowIndex(node));
                             setSelectedColumn(GridPane.getColumnIndex(node));
 
                             int buttonIndex = getButtonIndex(selectedColumn, selectedRow);
-                            System.out.println("Button index: " + buttonIndex);
-
                             SudokuButton button = getButtonUnderGivenIndex(buttonIndex);
 
                             if(button.getValue() == -1) {
@@ -145,10 +142,6 @@ public class SudokuGrid extends GridPane {
                                 //get the available values from the algorithm
                                 valueGrid.setSelectedColumn(selectedColumn);
                                 valueGrid.setSelectedRow(selectedRow);
-                                System.out.println("Value grid col: " + valueGrid.getSelectedColumn() + " row: " + valueGrid.getSelectedRow());
-                                System.out.println("Main grid col: " + selectedColumn + " row: " + selectedRow);
-
-
 
                                 valueGrid.updateValues(availableValues);
                             } else {

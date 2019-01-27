@@ -1,23 +1,31 @@
 .sudoku-button {
     -fx-background-color: lightgray;
     -fx-border-color: black;
-    -fx-border-radius: 15;
-    -fx-background-radius: 15;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
 }
 
 .sudoku-button-filled {
-    -fx-background-color: purple;
+    -fx-background-color: #4EA0E3;
 }
 
 .sudoku-button:hover {
-    -fx-background-color: #000000;
+    -fx-background-color: #E7E4A6;
     -fx-text-fill: white;
 }
 
 .sudoku-button:focused {
-    -fx-background-color: green;
+    -fx-background-color: E3DC4E;
 }
 
 .sudoku-button:selected {
     -fx-background-color: blue;
+}
+
+.sudoku-grid {
+    -fx-background-color: #F4F1BD;
+}
+
+.sudoku-border-pane {
+    -fx-background-color:#94EFEA;
 }
