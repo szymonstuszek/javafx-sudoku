@@ -66,7 +66,10 @@
 
             <SolveButton fx:id="solveButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" text="Solve" />
             <ResetButton fx:id="resetButton" minWidth="127.0" mnemonicParsing="false" prefHeight="31.0" text="Reset" />
-            <StatusLabel fx:id="statusLabel" prefHeight="43.0" prefWidth="114.0" text="" />
+            <StatusLabel fx:id="statusLabel" prefHeight="52.0" prefWidth="114.0" text="" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></StatusLabel>
       </children>
       </VBox>
    </right>

@@ -39,7 +39,7 @@ public class SudokuGrid extends GridPane {
             statusLabel.setText("No solution");
         } else {
             updateSudokuGrid(resolvedBoardValueList);
-            statusLabel.setText("Solved");
+            statusLabel.setText("Solved!");
         }
     }
 
@@ -48,6 +48,13 @@ public class SudokuGrid extends GridPane {
             int valueFromAlgorithm = values.get(i);
             buttons.get(i).setValue(valueFromAlgorithm);
             buttons.get(i).updateButtonView();
+
+            if(countNumberOfEmptyFields() == 0) {
+                statusLabel.setText("Solved!");
+            } else {
+                statusLabel.setText("Fields remaining: " + countNumberOfEmptyFields());
+            }
+
         }
     }
 
@@ -59,6 +66,14 @@ public class SudokuGrid extends GridPane {
             buttons.get(i).getStyleClass().clear();
             buttons.get(i).getStyleClass().addAll("sudoku-button", "button");
         }
+    }
+
+    public long countNumberOfEmptyFields() {
+        long emptyFieldCount = buttons.stream()
+                .filter(e -> e.getValue() == -1)
+                .count();
+
+        return emptyFieldCount;
     }
 
     public int getButtonIndex(int column, int row) {
