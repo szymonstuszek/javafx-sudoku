@@ -4,11 +4,13 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import sudoku.model.SudokuBoard;
 import sudoku.model.SudokuElement;
 import sudoku.model.SudokuSolver;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +53,7 @@ public class SudokuGrid extends GridPane {
         }
     }
 
-    private int getButtonIndex(int column, int row) {
+    public int getButtonIndex(int column, int row) {
         int elementIndex = row * 9 + column;
         if(elementIndex > -1 && elementIndex < 81) {
             return elementIndex;
@@ -135,6 +137,8 @@ public class SudokuGrid extends GridPane {
                                 valueGrid.setSelectedRow(selectedRow);
                                 System.out.println("Value grid col: " + valueGrid.getSelectedColumn() + " row: " + valueGrid.getSelectedRow());
                                 System.out.println("Main grid col: " + selectedColumn + " row: " + selectedRow);
+
+
 
                                 valueGrid.updateValues(availableValues);
                             } else {

@@ -4,6 +4,7 @@ import javafx.beans.DefaultProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 
 @DefaultProperty(value = "extension")
 public class SudokuButton extends Button {
@@ -15,6 +16,7 @@ public class SudokuButton extends Button {
         this.rowIndex = rowIndex;
         this.colIndex = colIndex;
         this.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        this.setFont(new Font(30));
         initField();
     }
 

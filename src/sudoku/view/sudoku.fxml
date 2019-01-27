@@ -10,8 +10,11 @@
 <?import sudoku.gui.ValueGrid?>
 
 <?import sudoku.gui.ResetButton?>
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.controller.Controller">
-   <center>
+
+<?import sudoku.gui.SolveButton?>
+
+<BorderPane stylesheets="/resources/styles.css" fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.controller.Controller">
+    <center>
       <SudokuGrid fx:id="boardGridPane" gridLinesVisible="true" prefWidth="592.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
@@ -38,7 +41,7 @@
       </SudokuGrid>
    </center>
    <right>
-      <VBox fx:id="sideVBox" prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="sideVBox" prefHeight="200.0" prefWidth="180.0" BorderPane.alignment="CENTER">
 
       <children>
           <Label fx:id="infoLabel" text="Label" />
@@ -56,8 +59,9 @@
             </ValueGrid>
 
             <Button fx:id="solveButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" text="Solve" />
-            <ResetButton fx:id="resetButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Reset" />
+            <ResetButton fx:id="resetButton" mnemonicParsing="false" prefHeight="31.0" minWidth="127.0" text="Reset" />
             <Label fx:id="statusLabel" prefHeight="43.0" prefWidth="114.0" text="" />
+            <SolveButton text="solve"></SolveButton>
       </children>
       </VBox>
    </right>

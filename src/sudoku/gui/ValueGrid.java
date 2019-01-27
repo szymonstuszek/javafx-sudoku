@@ -31,7 +31,12 @@ public class ValueGrid extends GridPane {
 
         List<Integer> updatedBoardValues = sudokuBoard.getAllValuesFromBoard();
 
-        updatedBoardValues.forEach(System.out::print);
+        int buttonIndex = sudokuGrid.getButtonIndex(selectedColumn, selectedRow);
+        System.out.println("Button index: " + buttonIndex);
+
+        SudokuButton button = sudokuGrid.getButtonUnderGivenIndex(buttonIndex);
+
+        button.setStyle("-fx-background-color:orange");
 
        sudokuGrid.updateSudokuGrid(updatedBoardValues);
     }
