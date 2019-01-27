@@ -42,6 +42,7 @@ public class ValueGrid extends GridPane {
     }
 
     public ValueGrid() {
+        this.getStyleClass().add("value-grid");
         initGrid();
     }
 
@@ -111,6 +112,9 @@ public class ValueGrid extends GridPane {
                 valueButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                 GridPane.setRowIndex(valueButton, i);
                 GridPane.setColumnIndex(valueButton, j);
+
+
+                valueButton.getStyleClass().add("value-button");
 
                 valueButton.setOnAction(new EventHandler<ActionEvent>() {
                     @Override

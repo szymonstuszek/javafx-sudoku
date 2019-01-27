@@ -10,6 +10,7 @@ public class ResetButton extends Button {
     private SudokuGrid sudokuGrid;
 
     public ResetButton() {
+        this.getStyleClass().add("reset-button");
         initResetButton();
     }
 
@@ -32,5 +33,6 @@ public class ResetButton extends Button {
         buttons.forEach(b -> b.setText(""));
         sudokuGrid.getValueGrid().disableAllValueButtons();
         sudokuGrid.getLabel().setText("Select a field");
+        sudokuGrid.getValueGrid().disableAllValueButtons();
     }
 }
