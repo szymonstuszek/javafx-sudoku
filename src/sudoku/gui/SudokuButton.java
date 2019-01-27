@@ -1,4 +1,4 @@
-package sample.gui;
+package sudoku.gui;
 
 import javafx.beans.DefaultProperty;
 import javafx.event.ActionEvent;

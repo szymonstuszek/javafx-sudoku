@@ -1,14 +1,14 @@
-package sample.controller;
+package sudoku.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import sample.gui.ResetButton;
-import sample.gui.SudokuGrid;
-import sample.gui.ValueGrid;
-import sample.model.SudokuSolver;
+import sudoku.gui.ResetButton;
+import sudoku.gui.SudokuGrid;
+import sudoku.gui.ValueGrid;
+import sudoku.model.SudokuSolver;
 
 import java.net.URL;
 import java.util.List;

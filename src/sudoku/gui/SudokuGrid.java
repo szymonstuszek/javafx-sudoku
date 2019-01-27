@@ -1,13 +1,13 @@
-package sample.gui;
+package sudoku.gui;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import sample.model.SudokuBoard;
-import sample.model.SudokuElement;
-import sample.model.SudokuSolver;
+import sudoku.model.SudokuBoard;
+import sudoku.model.SudokuElement;
+import sudoku.model.SudokuSolver;
 
 import java.util.ArrayList;
 import java.util.List;

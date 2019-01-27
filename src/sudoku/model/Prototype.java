@@ -1,4 +1,4 @@
-package sample.model;
+package sudoku.model;
 
 public class Prototype<T> implements Cloneable {
 

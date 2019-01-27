@@ -1,4 +1,4 @@
-package sample.model;
+package sudoku.model;
 
 import java.util.ArrayDeque;
 import java.util.List;

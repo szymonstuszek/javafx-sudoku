@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import sample.gui.SudokuGrid?>
-<?import sample.gui.ValueGrid?>
+<?import sudoku.gui.SudokuGrid?>
+<?import sudoku.gui.ValueGrid?>
 
-<?import sample.gui.ResetButton?>
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+<?import sudoku.gui.ResetButton?>
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.controller.Controller">
    <center>
       <SudokuGrid fx:id="boardGridPane" gridLinesVisible="true" prefWidth="592.0" BorderPane.alignment="CENTER">
         <columnConstraints>

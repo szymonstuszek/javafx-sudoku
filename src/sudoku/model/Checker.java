@@ -1,4 +1,4 @@
-package sample.model;
+package sudoku.model;
 
 import java.util.HashSet;
 import java.util.List;

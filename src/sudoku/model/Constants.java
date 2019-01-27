@@ -1,4 +1,4 @@
-package sample.model;
+package sudoku.model;
 
 public interface Constants {
     int SIZE_OF_BOARD = 9;

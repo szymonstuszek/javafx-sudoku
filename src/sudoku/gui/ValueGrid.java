@@ -1,11 +1,11 @@
-package sample.gui;
+package sudoku.gui;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import sample.model.SudokuBoard;
-import sample.model.SudokuSolver;
+import sudoku.model.SudokuBoard;
+import sudoku.model.SudokuSolver;
 
 import java.util.ArrayList;
 import java.util.List;
