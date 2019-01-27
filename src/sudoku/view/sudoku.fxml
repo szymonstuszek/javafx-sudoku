@@ -15,7 +15,7 @@
 
 <BorderPane stylesheets="/resources/styles.css" fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.controller.Controller">
     <center>
-      <SudokuGrid fx:id="boardGridPane" gridLinesVisible="true" prefWidth="592.0" BorderPane.alignment="CENTER">
+      <SudokuGrid fx:id="boardGridPane" gridLinesVisible="false" prefWidth="592.0" BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
@@ -61,7 +61,6 @@
             <Button fx:id="solveButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="119.0" text="Solve" />
             <ResetButton fx:id="resetButton" mnemonicParsing="false" prefHeight="31.0" minWidth="127.0" text="Reset" />
             <Label fx:id="statusLabel" prefHeight="43.0" prefWidth="114.0" text="" />
-            <SolveButton text="solve"></SolveButton>
       </children>
       </VBox>
    </right>

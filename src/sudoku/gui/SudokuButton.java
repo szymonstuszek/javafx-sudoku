@@ -17,6 +17,7 @@ public class SudokuButton extends Button {
         this.colIndex = colIndex;
         this.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.setFont(new Font(30));
+        this.getStyleClass().add("sudoku-button");
         initField();
     }
 

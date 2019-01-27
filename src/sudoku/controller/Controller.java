@@ -54,10 +54,11 @@ public class Controller implements Initializable {
 
         resetButton.setSudokuGrid(boardGridPane);
         resetButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+
         resetButton.setOnAction(event -> {
             sudokuSolver.resetGame();
             List<Integer> clearedList = sudokuSolver.getSudokuBoard().getAllValuesFromBoard();
-            boardGridPane.updateSudokuGrid(clearedList);
+            boardGridPane.updateSudokuGridAfterReset(clearedList);
             solveButton.setDisable(false);
             statusLabel.setText("");
         });
@@ -69,10 +70,13 @@ public class Controller implements Initializable {
         });
 
 
+        infoLabel.setText("Select a field");
         infoLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         infoLabel.setAlignment(Pos.CENTER);
 
         statusLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         statusLabel.setAlignment(Pos.CENTER);
+
+        valueGridPane.disableAllValueButtons();
     }
 }

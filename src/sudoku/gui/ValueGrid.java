@@ -12,8 +12,8 @@ import java.util.List;
 
 public class ValueGrid extends GridPane {
     private List<Button> valueButtons = new ArrayList<>();
-    private int selectedColumn = -1;
-    private int selectedRow = -1;
+    private int selectedColumn = 0;
+    private int selectedRow = 0;
     private SudokuGrid sudokuGrid;
     private SudokuSolver sudokuSolver;
 
@@ -36,7 +36,7 @@ public class ValueGrid extends GridPane {
 
         SudokuButton button = sudokuGrid.getButtonUnderGivenIndex(buttonIndex);
 
-        button.setStyle("-fx-background-color:orange");
+        button.getStyleClass().add("sudoku-button-filled");
 
        sudokuGrid.updateSudokuGrid(updatedBoardValues);
     }
@@ -116,6 +116,7 @@ public class ValueGrid extends GridPane {
                     @Override
                     public void handle(ActionEvent event) {
                         int valueFromButton = Integer.valueOf(valueButton.getText());
+                        System.out.println("WHats inside: " + valueFromButton);
                         passValueToSolver(selectedColumn, selectedRow, valueFromButton);
                     }
                 });

@@ -1,18 +1,23 @@
-.button {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 10;
-
+.sudoku-button {
+    -fx-background-color: lightgray;
+    -fx-border-color: black;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
 }
 
-.button:hover {
+.sudoku-button-filled {
+    -fx-background-color: purple;
+}
+
+.sudoku-button:hover {
     -fx-background-color: #000000;
     -fx-text-fill: white;
 }
 
-.button:focused {
+.sudoku-button:focused {
     -fx-background-color: green;
 }
 
-.button:selected {
+.sudoku-button:selected {
     -fx-background-color: blue;
 }

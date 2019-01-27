@@ -44,12 +44,21 @@ public class SudokuGrid extends GridPane {
         }
     }
 
-
     public void updateSudokuGrid(List<Integer> values) {
         for (int i = 0; i < 81; i++) {
             int valueFromAlgorithm = values.get(i);
             buttons.get(i).setValue(valueFromAlgorithm);
             buttons.get(i).updateButtonView();
+        }
+    }
+
+    public void updateSudokuGridAfterReset(List<Integer> values) {
+        for (int i = 0; i < 81; i++) {
+            int valueFromAlgorithm = values.get(i);
+            buttons.get(i).setValue(valueFromAlgorithm);
+            buttons.get(i).updateButtonView();
+            buttons.get(i).getStyleClass().clear();
+            buttons.get(i).getStyleClass().addAll("sudoku-button", "button");
         }
     }
 
@@ -112,7 +121,8 @@ public class SudokuGrid extends GridPane {
 
                     if( node instanceof SudokuButton) {
                         if( node.getBoundsInParent().contains(event.getSceneX(),  event.getSceneY())) {
-                            setSelectedField("Field: " + GridPane.getRowIndex(node) + " " + GridPane.getColumnIndex(node));
+                            setSelectedField("Column: " +
+                                    (GridPane.getColumnIndex(node) + 1) + " Row: " + (GridPane.getRowIndex(node) + 1));
                             label.setText(getSelectedField());
 
                             setSelectedRow(GridPane.getRowIndex(node));
