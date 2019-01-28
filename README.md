@@ -17,3 +17,7 @@ git clone https://github.com/szymonstuszek/javafx-sudoku.git
 ## Versioning
 
 Used git for versioning.
+
+## Purpose
+
+Project created to practice writing desktop apps in Java. Used a MVC pattern to separate the backend from the view. The algorithm performs validity checks and updates the state of the board elements. The controller binds the backend and the visual part. Used lambda expressions to keep the code more readable and concise.
