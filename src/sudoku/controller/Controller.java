@@ -7,10 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import sudoku.gui.ResetButton;
-import sudoku.gui.SudokuBorderPane;
-import sudoku.gui.SudokuGrid;
-import sudoku.gui.ValueGrid;
+import sudoku.gui.*;
 import sudoku.model.SudokuSolver;
 
 import java.net.URL;
@@ -31,10 +28,10 @@ public class Controller implements Initializable {
     private ValueGrid valueGridPane;
 
     @FXML
-    private Label infoLabel;
+    private InfoLabel infoLabel;
 
     @FXML
-    private Label statusLabel;
+    private StatusLabel statusLabel;
 
     @FXML
     private Button solveButton;
@@ -62,6 +59,8 @@ public class Controller implements Initializable {
             boardGridPane.updateSudokuGridAfterReset(clearedList);
             solveButton.setDisable(false);
             statusLabel.setText("");
+            infoLabel.setText("Select a field");
+            valueGridPane.disableAllValueButtons();
         });
 
         solveButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
