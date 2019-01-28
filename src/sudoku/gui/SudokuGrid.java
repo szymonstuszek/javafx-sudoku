@@ -14,7 +14,6 @@ import java.util.List;
 
 public class SudokuGrid extends GridPane {
     private List<SudokuButton> buttons = new ArrayList<>();
-    private String selectedField;
     private int selectedColumn = -1;
     private int selectedRow = -1;
 
@@ -27,9 +26,9 @@ public class SudokuGrid extends GridPane {
 
 
     public SudokuGrid() {
+        this.getStyleClass().add("sudoku-grid");
         initGrid();
         initEventFilter();
-        this.getStyleClass().add("sudoku-grid");
     }
 
 
@@ -51,6 +50,7 @@ public class SudokuGrid extends GridPane {
             buttons.get(i).updateButtonDisplay();
 
             if(countNumberOfEmptyFields() == 0) {
+                solveButton.setDisable(true);
                 statusLabel.setText("Solved!");
             } else {
                 statusLabel.setText("Fields remaining: " + countNumberOfEmptyFields());
@@ -85,7 +85,6 @@ public class SudokuGrid extends GridPane {
         return -1;
     }
 
-    //not return null?
     public SudokuButton getButtonUnderGivenIndex(int index) {
         if(index > -1 && index < 81) {
             return buttons.get(index);
@@ -93,19 +92,11 @@ public class SudokuGrid extends GridPane {
         return null;
     }
 
-    public Label getInfoLabel() {
-        return infoLabel;
-    }
-
-    public void setInfoLabel(InfoLabel infoLabel) {
-        this.infoLabel = infoLabel;
-    }
-
     private void initGrid() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 SudokuButton field = new SudokuButton(i, j);
-                //to fxml
+
                 field.setPrefSize(20.0, 20.0);
                 field.setMinSize(50, 50);
 
@@ -115,11 +106,9 @@ public class SudokuGrid extends GridPane {
                 GridPane.setFillWidth(field, true);
 
                 buttons.add(field);
-
                 this.getChildren().add(field);
             }
         }
-
     }
 
     private void initEventFilter() {
@@ -130,9 +119,8 @@ public class SudokuGrid extends GridPane {
 
                     if( node instanceof SudokuButton) {
                         if( node.getBoundsInParent().contains(event.getSceneX(),  event.getSceneY())) {
-                            setSelectedField("Column: " + (GridPane.getColumnIndex(node) + 1) +
+                            infoLabel.setText("Column: " + (GridPane.getColumnIndex(node) + 1) +
                                     " Row: " + (GridPane.getRowIndex(node) + 1));
-                            infoLabel.setText(getSelectedField());
 
                             setSelectedRow(GridPane.getRowIndex(node));
                             setSelectedColumn(GridPane.getColumnIndex(node));
@@ -141,18 +129,12 @@ public class SudokuGrid extends GridPane {
                             SudokuButton button = getButtonUnderGivenIndex(buttonIndex);
 
                             if(button.getValue() == -1) {
-
-                                //start here pass values to backend
-                                //go to value grid after
-
                                 SudokuBoard sudokuBoard = sudokuSolver.getSudokuBoard();
                                 SudokuElement sudokuElement = sudokuBoard.getElementUnderGivenIndexes(selectedColumn, selectedRow);
                                 List<Integer> availableValues = sudokuElement.getAvailableValues();
 
-                                //get the available values from the algorithm
                                 valueGrid.setSelectedColumn(selectedColumn);
                                 valueGrid.setSelectedRow(selectedRow);
-
                                 valueGrid.updateValues(availableValues);
                             } else {
                                 valueGrid.disableAllValueButtons();
@@ -162,14 +144,6 @@ public class SudokuGrid extends GridPane {
                 }
             }
         });
-    }
-
-    public String getSelectedField() {
-        return selectedField;
-    }
-
-    public void setSelectedField(String selectedField) {
-        this.selectedField = selectedField;
     }
 
     public ValueGrid getValueGrid() {
@@ -222,5 +196,13 @@ public class SudokuGrid extends GridPane {
 
     public void setSolveButton(SolveButton solveButton) {
         this.solveButton = solveButton;
+    }
+
+    public Label getInfoLabel() {
+        return infoLabel;
+    }
+
+    public void setInfoLabel(InfoLabel infoLabel) {
+        this.infoLabel = infoLabel;
     }
 }

@@ -24,7 +24,6 @@ public class ValueGrid extends GridPane {
     private void passValueToSolver(int selectedColumn, int selectedRow, int value) {
         disableAllValueButtons();
 
-        System.out.println("Passing to algorithm col: " + selectedColumn + " row: " + selectedRow + " value: " + value);
         SudokuBoard sudokuBoard = sudokuSolver.getSudokuBoard();
         sudokuBoard.setValueOnBoard(selectedColumn, selectedRow, value);
         sudokuSolver.checkIfBoardIsValid();
@@ -32,7 +31,6 @@ public class ValueGrid extends GridPane {
         List<Integer> updatedBoardValues = sudokuBoard.getAllValuesFromBoard();
 
         int buttonIndex = sudokuGrid.getButtonIndex(selectedColumn, selectedRow);
-        System.out.println("Button index: " + buttonIndex);
 
         SudokuButton button = sudokuGrid.getButtonUnderGivenIndex(buttonIndex);
 

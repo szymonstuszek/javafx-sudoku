@@ -12,6 +12,7 @@ public class InfoLabel extends Label {
         setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         setAlignment(Pos.CENTER);
         setFont(new Font(20));
-        setText("Select a field");
+        this.setText("Select a field");
+        System.out.println(getText());
     }
 }
