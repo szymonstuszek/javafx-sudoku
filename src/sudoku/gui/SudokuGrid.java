@@ -132,10 +132,8 @@ public class SudokuGrid extends GridPane {
                                 SudokuBoard sudokuBoard = sudokuSolver.getSudokuBoard();
                                 SudokuElement sudokuElement = sudokuBoard.getElementUnderGivenIndexes(selectedColumn, selectedRow);
                                 List<Integer> availableValues = sudokuElement.getAvailableValues();
-
-                                valueGrid.setSelectedColumn(selectedColumn);
-                                valueGrid.setSelectedRow(selectedRow);
                                 valueGrid.updateValues(availableValues);
+
                             } else {
                                 valueGrid.disableAllValueButtons();
                             }
@@ -168,10 +166,6 @@ public class SudokuGrid extends GridPane {
 
     public void setSelectedRow(int selectedRow) {
         this.selectedRow = selectedRow;
-    }
-
-    public List<SudokuButton> getButtons() {
-        return buttons;
     }
 
     public SudokuSolver getSudokuSolver() {

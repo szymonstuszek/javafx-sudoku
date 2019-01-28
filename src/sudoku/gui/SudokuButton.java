@@ -31,6 +31,10 @@ public class SudokuButton extends Button {
         if(value == 9) this.setText("9");
     }
 
+    public void markButtonAsFilled() {
+        getStyleClass().add("sudoku-button-filled");
+    }
+
     public int getValue() {
         return value;
     }
