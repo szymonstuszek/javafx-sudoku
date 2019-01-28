@@ -48,7 +48,7 @@ public class SudokuGrid extends GridPane {
         for (int i = 0; i < 81; i++) {
             int valueFromAlgorithm = values.get(i);
             buttons.get(i).setValue(valueFromAlgorithm);
-            buttons.get(i).updateButtonView();
+            buttons.get(i).updateButtonDisplay();
 
             if(countNumberOfEmptyFields() == 0) {
                 statusLabel.setText("Solved!");
@@ -63,7 +63,7 @@ public class SudokuGrid extends GridPane {
         for (int i = 0; i < 81; i++) {
             int valueFromAlgorithm = values.get(i);
             buttons.get(i).setValue(valueFromAlgorithm);
-            buttons.get(i).updateButtonView();
+            buttons.get(i).updateButtonDisplay();
             buttons.get(i).getStyleClass().clear();
             buttons.get(i).getStyleClass().addAll("sudoku-button", "button");
         }

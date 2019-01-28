@@ -1,8 +1,6 @@
 package sudoku.gui;
 
 import javafx.beans.DefaultProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
@@ -18,26 +16,9 @@ public class SudokuButton extends Button {
         this.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.setFont(new Font(30));
         this.getStyleClass().add("sudoku-button");
-        initField();
     }
 
-    public int getRowIndex() {
-        return rowIndex;
-    }
-
-    public int getColIndex() {
-        return colIndex;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public void updateButtonView() {
+    public void updateButtonDisplay() {
         if(value == -1) this.setText("");
         if(value == 1) this.setText("1");
         if(value == 2) this.setText("2");
@@ -50,12 +31,11 @@ public class SudokuButton extends Button {
         if(value == 9) this.setText("9");
     }
 
-    private void initField() {
-        this.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Element row: " + getRowIndex() + " element col: " + getColIndex());
-            }
-        });
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }
