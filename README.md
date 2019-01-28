@@ -1,6 +1,6 @@
-# Project Title
+# JavaFX Sudoku Solver
 
-One Paragraph of project description goes here
+Sudoku Solver implementation in JavaFX. The user can fill out fields with numbers and after hitting the "solve" button the algorithm will fill out the board or inform that there is no solution to a given scenario.
 
 ## Getting Started
 
