@@ -8,3 +8,12 @@ Use git clone to copy the repository to your machine. The project was written wi
 git clone https://github.com/szymonstuszek/javafx-sudoku.git
 
 ![alt text](https://github.com/szymonstuszek/javafx-sudoku/blob/master/sudoku.PNG)
+
+## Technologies
+
+- JDK 1.8
+- JavaFX 8.0.171
+
+## Versioning
+
+Used git for versioning.
