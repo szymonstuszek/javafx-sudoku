@@ -47,6 +47,5 @@ public class Controller implements Initializable {
 
         resetButton.setSudokuGrid(boardGridPane);
         solveButton.setSudokuGrid(boardGridPane);
-        System.out.println(infoLabel.getText());
     }
 }

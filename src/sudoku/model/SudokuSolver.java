@@ -21,17 +21,12 @@ public class SudokuSolver {
     }
 
 
-    public SudokuSolver() {
-    }
+    public SudokuSolver() {}
 
     public boolean checkIfBoardIsValid() {
         return checker.checkIfBoardIsValid();
     }
 
-
-    //return a list of values or if no solution get a message
-    //if able to solve -> List<Integer>
-    //unable -> error message / null
     public List<Integer> solve() {
         boolean isThereASolution = true;
         boolean isBoardSolved = false;
@@ -54,8 +49,6 @@ public class SudokuSolver {
             }
             isBoardSolved = sudokuBoard.isBoardSolved();
         }
-        System.out.println(sudokuBoard.toString());
-        System.out.println("Finished in: " + totalSteps + " steps");
 
         return sudokuBoard.getAllValuesFromBoard();
     }

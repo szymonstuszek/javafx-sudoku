@@ -13,6 +13,5 @@ public class InfoLabel extends Label {
         setAlignment(Pos.CENTER);
         setFont(new Font(20));
         this.setText("Select a field");
-        System.out.println(getText());
     }
 }

@@ -89,16 +89,6 @@ public class SudokuBoard extends Prototype {
         }
     }
 
-    public void checkAvailableValues(int column, int row) {
-        SudokuElement chosenElement = getElementUnderGivenIndexes(column, row);
-        List<Integer> values = chosenElement.getAvailableValues();
-
-        System.out.println("Count of available values: " + values.size() +
-                " at field column " + (column + 1) + " row " + (row + 1));
-        values.forEach(System.out::print);
-        System.out.println();
-    }
-
     public SudokuBoard deepCopy() throws CloneNotSupportedException {
         SudokuBoard clonedBoard = (SudokuBoard) super.clone();
         clonedBoard.rows = new ArrayList<>();

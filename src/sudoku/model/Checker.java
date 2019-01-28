@@ -166,10 +166,6 @@ public class Checker {
         return true;
     }
 
-    public SudokuBoard getSudokuBoard() {
-        return sudokuBoard;
-    }
-
     public void setSudokuBoard(SudokuBoard sudokuBoard) {
         this.sudokuBoard = sudokuBoard;
     }
