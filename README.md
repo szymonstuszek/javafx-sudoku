@@ -20,4 +20,9 @@ Used git for versioning.
 
 ## Purpose
 
-Project created to practice writing desktop apps in Java. Used a MVC pattern to separate the backend from the view. The algorithm performs validity checks and updates the state of the board elements. The controller binds the backend and the visual part. Used lambda expressions to keep the code more readable and concise.
+Project created to practice writing desktop apps in Java. Used a MVC pattern to separate the backend from the view. The algorithm performs validity checks and updates the state of the board elements. The controller binds the backend and the visual part. Used lambda expressions to keep the code more readable and concise. The app uses a backtracking algorithm to find a solution to the sudoku.
+
+## Sources
+
+Project inspired by a task from a programming bootcamp that I took part in, extended it with a frontend layer.
+https://kodilla.com/pl
