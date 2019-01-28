@@ -19,8 +19,9 @@ public class SudokuGrid extends GridPane {
     private int selectedRow = -1;
 
     private ValueGrid valueGrid;
-    private Label label;
-    private Label statusLabel;
+    private InfoLabel infoLabel;
+    private StatusLabel statusLabel;
+    private SolveButton solveButton;
 
     private SudokuSolver sudokuSolver;
 
@@ -92,18 +93,12 @@ public class SudokuGrid extends GridPane {
         return null;
     }
 
-    public void setValueOnBoard(int column, int row, int value) {
-        int buttonIndex = getButtonIndex(column, row);
-        buttons.get(buttonIndex).setText(String.valueOf(value));
-        buttons.get(buttonIndex).setValue(value);
+    public Label getInfoLabel() {
+        return infoLabel;
     }
 
-    public Label getLabel() {
-        return label;
-    }
-
-    public void setLabel(Label label) {
-        this.label = label;
+    public void setInfoLabel(InfoLabel infoLabel) {
+        this.infoLabel = infoLabel;
     }
 
     private void initGrid() {
@@ -137,7 +132,7 @@ public class SudokuGrid extends GridPane {
                         if( node.getBoundsInParent().contains(event.getSceneX(),  event.getSceneY())) {
                             setSelectedField("Column: " + (GridPane.getColumnIndex(node) + 1) +
                                     " Row: " + (GridPane.getRowIndex(node) + 1));
-                            label.setText(getSelectedField());
+                            infoLabel.setText(getSelectedField());
 
                             setSelectedRow(GridPane.getRowIndex(node));
                             setSelectedColumn(GridPane.getColumnIndex(node));
@@ -217,7 +212,15 @@ public class SudokuGrid extends GridPane {
         return statusLabel;
     }
 
-    public void setStatusLabel(Label statusLabel) {
+    public void setStatusLabel(StatusLabel statusLabel) {
         this.statusLabel = statusLabel;
+    }
+
+    public SolveButton getSolveButton() {
+        return solveButton;
+    }
+
+    public void setSolveButton(SolveButton solveButton) {
+        this.solveButton = solveButton;
     }
 }

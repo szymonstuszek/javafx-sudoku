@@ -11,6 +11,7 @@ public class ResetButton extends Button {
 
     public ResetButton() {
         this.getStyleClass().add("reset-button");
+        setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         initResetButton();
     }
 
@@ -28,11 +29,12 @@ public class ResetButton extends Button {
     }
 
     private void resetBoard() {
-        List<SudokuButton> buttons = sudokuGrid.getButtons();
-        buttons.forEach(b -> b.setValue(-1));
-        buttons.forEach(b -> b.setText(""));
-        sudokuGrid.getValueGrid().disableAllValueButtons();
-        sudokuGrid.getLabel().setText("Select a field");
+        sudokuGrid.getSudokuSolver().resetGame();
+        List<Integer> clearedList = sudokuGrid.getSudokuSolver().getSudokuBoard().getAllValuesFromBoard();
+        sudokuGrid.updateSudokuGridAfterReset(clearedList);
+        sudokuGrid.getSolveButton().setDisable(false);
+        sudokuGrid.getInfoLabel().setText("Select a field");
+        sudokuGrid.getStatusLabel().setText("");
         sudokuGrid.getValueGrid().disableAllValueButtons();
     }
 }

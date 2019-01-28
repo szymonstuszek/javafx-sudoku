@@ -44,6 +44,7 @@ public class ValueGrid extends GridPane {
     public ValueGrid() {
         this.getStyleClass().add("value-grid");
         initGrid();
+        disableAllValueButtons();
     }
 
     public void updateValues(List<Integer> availableValues) {
