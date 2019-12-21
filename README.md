@@ -13,6 +13,7 @@ git clone https://github.com/szymonstuszek/javafx-sudoku.git
 
 - JDK 1.8
 - JavaFX 8.0.171
+- Maven
 
 ## Versioning
 
